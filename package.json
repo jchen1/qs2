@@ -1,0 +1,36 @@
+{
+    "name": "qs2",
+    "version": "0.1.0",
+    "private": true,
+    "devDependencies": {
+        "@bazel/bazel": "1.1.0",
+        "@bazel/ibazel": "0.10.3",
+        "@bazel/buildifier": "0.29.0",
+        "@bazel/typescript": "0.39.1",
+        "typescript": "~3.7.2"
+    },
+    "dependencies": {
+        "@types/cors": "2.8.6",
+        "@types/express": "4.17.2",
+        "@types/node": "12.12.7",
+        "cors": "2.8.5",
+        "express": "4.17.1",
+        "express-graphql": "0.9.0",
+        "graphql": "14.5.8",
+        "graphql-config": "3.0.0-alpha.14",
+        "graphql-subscriptions": "1.1.0",
+        "graphql-tag": "2.10.1",
+        "graphql-tools": "4.0.6",
+        "knex": "0.20.1",
+        "pg": "7.12.1",
+        "sqlite3": "4.1.0",
+        "subscriptions-transport-ws": "0.9.16",
+        "ts-node": "8.5.0",
+        "ts-node-dev": "1.0.0-pre.44",
+        "typescript": "~3.7.2"
+    },
+    "scripts": {
+        "build": "bazel build //...",
+        "test": "bazel test //..."
+    }
+}
