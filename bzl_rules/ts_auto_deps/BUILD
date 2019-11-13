@@ -10,5 +10,5 @@ ts_library(
 nodejs_binary(
   name = "ts_auto_deps",
   entry_point = ":auto_deps.ts",
-  data = [":ts_auto_deps_lib", "@npm//typescript", "@npm//@types/typescript"]
+  data = [":ts_auto_deps_lib", "@npm//:node_modules"] # "@npm//typescript", "@npm//@types/typescript"]
 )
