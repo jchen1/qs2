@@ -48,3 +48,20 @@ nodejs_binary(
         "@npm//@bazel/typescript",
     ],
 )
+
+nodejs_binary(
+  name = "prettier_bin",
+  entry_point = "@npm//:node_modules/prettier/bin-prettier.js",
+  node_modules = "@npm//:node_modules",
+  data = [
+    "@npm//:node_modules",
+  ],
+)
+
+genrule(
+  name = "prettier",
+  srcs = glob(["src/ts/*.ts", "src/ts/**/*.ts"]),
+  tools = [":prettier_bin"],
+  outs = ["prettier.tgz"],
+  cmd = "$(location :prettier_bin) src/**/*.ts --write && tar -pczf archive.tar.gz src && mv archive.tar.gz $@"
+)
