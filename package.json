@@ -34,6 +34,7 @@
     "scripts": {
         "build": "bazel build //...",
         "test": "bazel test //...",
-        "lint": "bazel build prettier && tar -qxzvf dist/bin/prettier.tgz"
+        "lint": "bazel build prettier && tar -qxzvf dist/bin/prettier.tgz",
+        "auto_deps": "bazel run //bzl_rules/ts_auto_deps:ts_auto_deps src/ts"
     }
 }
