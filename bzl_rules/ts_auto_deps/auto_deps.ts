@@ -180,13 +180,10 @@ export function autoDeps() {
 
   for (const [buildFilePath, {content, rules}] of Object.entries(buildFiles)) {
     const buildFile = generateBuildFile(content, rules);
-    fs.writeFileSync(buildFilePath, buildFile);
+    if (buildFile !== content) {
+      fs.writeFileSync(buildFilePath, buildFile);
+    }
   }
 }
 
 autoDeps();
-
-/* TODO
-- write files to output directory
-- write a yarn script for this
-*/
