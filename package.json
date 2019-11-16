@@ -38,7 +38,7 @@
         "lint": "bazel build prettier && tar -qxzvf dist/bin/prettier.tgz",
         "auto_deps": "bazel run //bzl_rules/ts_auto_deps:ts_auto_deps src/ts",
         "server": "ibazel run //src/ts:server_node",
-        "auto_auto_deps": "fswatch -0 -r src/ts | xargs -0 -n 1 yarn run auto_deps",
+        "auto_auto_deps": "fswatch -0 -or src/ts | xargs -0 -n 1 yarn run auto_deps",
         "dev": "concurrently \"yarn:auto_auto_deps\" \"yarn:server\""
     }
 }
