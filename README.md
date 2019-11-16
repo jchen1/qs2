@@ -28,7 +28,7 @@ yarn graphql generate --db
 - Start the server
 
 ```sh
-cd server/ && yarn start
+yarn dev
 ```
 
 - Generate queries, mutations and subscriptions for client-side project
@@ -51,7 +51,7 @@ cd client/ && yarn start
 
 - Dependencies
 ```sh
-brew install buildifier
+brew install buildifier fswatch
 brew tap bazelbuild/tap
 brew install bazelbuild/tap/bazel bazelbuild/tap/ibazel
 ```

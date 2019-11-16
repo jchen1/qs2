@@ -7,6 +7,7 @@
         "@bazel/buildifier": "0.29.0",
         "@bazel/ibazel": "0.10.3",
         "@bazel/typescript": "0.39.1",
+        "concurrently": "^5.0.0",
         "prettier": "1.19.1",
         "typescript": "~3.7.2"
     },
@@ -35,6 +36,9 @@
         "build": "bazel build //...",
         "test": "bazel test //...",
         "lint": "bazel build prettier && tar -qxzvf dist/bin/prettier.tgz",
-        "auto_deps": "bazel run //bzl_rules/ts_auto_deps:ts_auto_deps src/ts"
+        "auto_deps": "bazel run //bzl_rules/ts_auto_deps:ts_auto_deps src/ts",
+        "server": "ibazel run //src/ts:server_node",
+        "auto_auto_deps": "fswatch -0 -r src/ts | xargs -0 -n 1 yarn run auto_deps",
+        "dev": "concurrently \"yarn:auto_auto_deps\" \"yarn:server\""
     }
 }
